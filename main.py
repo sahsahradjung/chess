@@ -13,7 +13,9 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-
-    screen.fill("green")
+        for row in range(8):
+            for col in range(8):
+                color = (189, 183, 137) if (row + col) % 2 == 0 else (112,86,50)
+                pygame.draw.rect(screen, color, (col * Square, row * Square, Square, Square))
     pygame.display.flip()
 pygame.quit()
